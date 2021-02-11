@@ -33,7 +33,7 @@ All files can be uploaded annd executed from Cloud Shell as well as from local P
 
 - ### **Remove-AzVPNClientConfiguration** <a name="Remove-AzVPNClientConfiguration"></a>[Link to script](https://github.com/ositobio/AzureForgottenFunctions/blob/master/Remove-AzVPNClientConfiguration.ps1)
 
-Removes the configuration for P2S in the VPN Gateway by setting it to $null, as there is no option to do it in Azure Portal or PowerShell commands
+Azure VPN provides the functionality of configuring Point 2 Site (P2S) VPN connections. However, once you enable it, there is no way to rol it back and remove the configuration. This is particularly problematic when a certificate get's stuck or when troubleshooting problems with P2S connections. This scripts removes the configuration for P2S in the VPN Gateway by setting the JSON output to $null and then commiting a PUT operation. VPN is updated with "empty" confguration leaving it unconfigured and with no downtime.
 
 **Remove-AzVPNClientConfiguration -VirtualNetworkGateway "VPN Gateway" -ResourceGroup "VPN_Resouce_Group"**
 
@@ -59,7 +59,7 @@ _ResourceGroup <"ResourceGroup">_: Mandatory, resource group where the connectio
 
 - ### **Reset-AzVirtualNetworkGatewayConnection** <a name="Reset-AzVirtualNetworkGatewayConnection"></a>[Link to script](https://github.com/ositobio/AzureForgottenFunctions/blob/master/Reset-AzVirtualNetworkGatewayConnection.ps1)
 
-As there is no possibility to reset only one connection and to avoid resetting the whole VNP, this script gets the connection configuration, deletes it and creates it again
+When troubleshooting or changing some configuration in a connection or local network gateway (LNG), a "reset" of the VPN tunnel is needed applyu the new configuration. In Azure, it's only possible by resetting the whole VPN, that causes downtime and disruption in other tunnels, or by deleting the connection and creating it again, that implies administative effort. This script gets the connection configuration into a variable, deletes the connection and creates it again with the same name and configuration. Works for VNET to VNET Connections as well as normal tunnels with VPN to LNG bindings.
     
 **Reset-AzVirtualNetworkGatewayConnection.ps1 -ConnectionName "ConnectionToOnPrem" -ConnectionResourceGroup "VPN_Resouce_Group"**
     
