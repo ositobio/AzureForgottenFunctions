@@ -31,7 +31,7 @@ All files can be uploaded annd executed from Cloud Shell as well as from local P
 
 
 
-- ### **Remove-AzVPNClientConfiguration** <a name="Remove-AzVPNClientConfiguration"></a>
+- ### **Remove-AzVPNClientConfiguration** <a name="Remove-AzVPNClientConfiguration"></a>[Link to script](https://github.com/ositobio/AzureForgottenFunctions/blob/master/Remove-AzVPNClientConfiguration.ps1)
 
 Removes the configuration for P2S in the VPN Gateway by setting it to $null, as there is no option to do it in Azure Portal or PowerShell commands
 
