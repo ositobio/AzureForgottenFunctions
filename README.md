@@ -44,7 +44,7 @@ _ResourceGroup <"ResourceGroup">_: Mandatory, resource group where the connectio
 
 
 
-- ### **Reset-AzActiveActiveVirtualNetworkGateway** <a name="Reset-AzActiveActiveVirtualNetworkGateway"></a>
+- ### **Reset-AzActiveActiveVirtualNetworkGateway** <a name="Reset-AzActiveActiveVirtualNetworkGateway"></a> (In progress...)
 
 When clicking Reset in Azure portal in an Active-Active VPN, it will only reboot first instance, making impossible to restart the second one. This scripts automates it, resetting both instances, waiting for the first one to come up before resetting the second to avoid downtime. 
 
@@ -57,7 +57,7 @@ _ResourceGroup <"ResourceGroup">_: Mandatory, resource group where the connectio
 
 
 
-- ### **Reset-AzVirtualNetworkGatewayConnection** <a name="Reset-AzVirtualNetworkGatewayConnection"></a> (In progress...)
+- ### **Reset-AzVirtualNetworkGatewayConnection** <a name="Reset-AzVirtualNetworkGatewayConnection"></a>
 
 As there is no possibility to reset only one connection and to avoid resetting the whole VNP, this script gets the connection configuration, deletes it and creates it again
     
