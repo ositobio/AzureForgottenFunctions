@@ -57,7 +57,7 @@ _ResourceGroup <"ResourceGroup">_: Mandatory, resource group where the connectio
 
 
 
-- ### **Reset-AzVirtualNetworkGatewayConnection** <a name="Reset-AzVirtualNetworkGatewayConnection"></a>
+- ### **Reset-AzVirtualNetworkGatewayConnection** <a name="Reset-AzVirtualNetworkGatewayConnection"></a> (In progress...)
 
 As there is no possibility to reset only one connection and to avoid resetting the whole VNP, this script gets the connection configuration, deletes it and creates it again
     
