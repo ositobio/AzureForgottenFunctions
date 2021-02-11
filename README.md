@@ -1,4 +1,4 @@
-# Azure Scripts
+# Azure Forgotten Functions
 
 ## Table of Contents
 
