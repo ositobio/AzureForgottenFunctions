@@ -44,9 +44,11 @@ _ResourceGroup <"ResourceGroup">_: Mandatory, resource group where the connectio
 
 
 
-- ### **Reset-AzActiveActiveVirtualNetworkGateway** <a name="Reset-AzActiveActiveVirtualNetworkGateway"></a> (In progress...)
+- ### **[Reset-AzActiveActiveVirtualNetworkGateway](https://github.com/ositobio/AzureForgottenFunctions/blob/master/Reset-AzActiveActiveVirtualNetworkGateway.ps1)** <a name="Reset-AzActiveActiveVirtualNetworkGateway"></a> 
 
-When clicking Reset in Azure portal in an Active-Active VPN, it will only reboot first instance, making impossible to restart the second one. This scripts automates it, resetting both instances, waiting for the first one to come up before resetting the second to avoid downtime. 
+For VPNs, there is an option in portal to reset. That will take the active instance (VM0) off the VPN, set stanby (VM1) as active and restart VM0. From that moment, the VPN will run on VM1. If you want to restart both VMs, you run reset twice.
+
+Howwever, in the active-active topology, as both of them are active, the process is different. VM0 will be restarted but, as it comes back online, will be active again, making impossible to reset VM1. For that, we need to reset each VM independently specifying the public IP they answer to as well as the instance IP. To make it easier, I made this script that automates it, resetting both instances, waiting for the first one to come up before resetting the second to avoid downtime. 
 
 **Reset-AzActiveActiveVPN.ps1 -GatewayName "MyActiveActiveVPN" -ResourceGroup "VPN_Resouce_Group"**
 
